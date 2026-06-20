@@ -3,18 +3,18 @@ import {
   els,
   isComponentInstanceNode,
   getNodeComponents
-} from "./deps.js";
-import { withInspectorAppendTarget } from "./context.js";
-import { addNodeComponentFields } from "./componentFields.js";
-import { getNodeComponentLabel } from "./componentRegistry.js";
-import { positionFloatingElement } from "./floatingPosition.js";
-import { getComponentValidationMessages } from "./componentValidation.js";
+} from "./deps.js?v=20260620-designless";
+import { withInspectorAppendTarget } from "./context.js?v=20260620-designless";
+import { addNodeComponentFields } from "./componentFields.js?v=20260620-designless";
+import { getNodeComponentLabel } from "./componentRegistry.js?v=20260620-designless";
+import { positionFloatingElement } from "./floatingPosition.js?v=20260620-designless";
+import { getComponentValidationMessages } from "./componentValidation.js?v=20260620-designless";
 import {
   addSelectedNodeComponent,
   removeSelectedNodeComponent,
   reorderSelectedNodeComponent,
   setSelectedNodeComponentEnabled
-} from "./componentMutations.js";
+} from "./componentMutations.js?v=20260620-designless";
 
 export function addNodeComponentCards(node) {
   const components = getNodeComponents(node);

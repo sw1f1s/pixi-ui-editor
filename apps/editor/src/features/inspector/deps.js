@@ -1,5 +1,5 @@
-import { els, state, bindEditorApi } from "../../app/editorRuntime.js";
-import { ASSET_TYPES, NODE_COMPONENT_TYPES } from "../../app/editorDeps.js";
+import { els, state, bindEditorApi } from "../../app/editorRuntime.js?v=20260620-designless";
+import { ASSET_TYPES, NODE_COMPONENT_TYPES } from "../../app/editorDeps.js?v=20260620-designless";
 import {
   ANCHOR_OFFSET_LABELS,
   ANCHOR_PICKER_MATRIX,
@@ -8,7 +8,7 @@ import {
   HORIZONTAL_ANCHOR_KEYS,
   NODE_COMPONENT_LABELS,
   VERTICAL_ANCHOR_KEYS
-} from "../../app/editorConfig.js";
+} from "../../app/editorConfig.js?v=20260620-designless";
 
 const api = bindEditorApi([
   "clamp",

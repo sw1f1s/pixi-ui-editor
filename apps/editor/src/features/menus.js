@@ -1,5 +1,5 @@
 // menus and keyboard shortcuts.
-import { els, state, bindEditorApi } from "../app/editorRuntime.js";
+import { els, state, bindEditorApi } from "../app/editorRuntime.js?v=20260620-designless";
 const {
   canCopySelectedNode,
   canCreateInstanceFromSelectedLayer,

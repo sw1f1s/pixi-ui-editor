@@ -1,5 +1,5 @@
-import { ASSET_BLOB_STORE, ASSET_DATABASE_NAME, ASSET_DATABASE_VERSION, ASSET_DB_URL_PREFIX, ASSET_TYPES, IMPORT_YIELD_INTERVAL, createId, persistCurrentProjectDocument, render, session, setExportPreviewPayload, state } from "./deps.js";
-import { yieldToBrowser } from "./fileMeta.js";
+import { ASSET_BLOB_STORE, ASSET_DATABASE_NAME, ASSET_DATABASE_VERSION, ASSET_DB_URL_PREFIX, ASSET_TYPES, IMPORT_YIELD_INTERVAL, createId, persistCurrentProjectDocument, render, session, setExportPreviewPayload, state } from "./deps.js?v=20260620-designless";
+import { yieldToBrowser } from "./fileMeta.js?v=20260620-designless";
 
 let assetDatabasePromise = null;
 

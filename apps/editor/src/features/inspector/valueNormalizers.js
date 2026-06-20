@@ -1,4 +1,4 @@
-import { cssColorIsSupported } from "./deps.js";
+import { cssColorIsSupported } from "./deps.js?v=20260620-designless";
 
 const NON_NEGATIVE_LAYOUT_KEYS = new Set(["gap", "padding", "rowGap", "columnGap", "cellWidth", "cellHeight", "grow", "minWidth", "minHeight", "columns"]);
 

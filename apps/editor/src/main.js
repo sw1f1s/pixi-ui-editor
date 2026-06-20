@@ -1,20 +1,20 @@
-import { createPlainPixiAdapter, createRendererFactory } from "./app/editorDeps.js";
-import { ASSET_RENDER_BATCH_SIZE, DEFAULT_CANVAS_VIEW } from "./app/editorConfig.js";
-import { createEditorElements } from "./app/editorElements.js";
-import { editorApi, registerEditorApi, session, setEditorElements, setEditorState } from "./app/editorRuntime.js";
-import * as projectFactory from "./features/projectFactory.js";
-import * as actions from "./features/actions.js";
-import * as layoutController from "./features/layoutController.js";
-import * as menus from "./features/menus.js";
-import * as projectFiles from "./features/projectFiles.js";
-import * as assets from "./features/assets.js";
-import * as documentController from "./features/documentController.js";
-import * as nodeActions from "./features/nodeActions.js";
-import * as sidebarViews from "./features/sidebarViews.js";
-import * as inspector from "./features/inspector.js";
-import * as canvasRenderer from "./features/canvasRenderer.js";
-import * as canvasInteractions from "./features/canvasInteractions.js";
-import * as selectors from "./features/selectors.js";
+import { createPlainPixiAdapter, createRendererFactory } from "./app/editorDeps.js?v=20260620-designless";
+import { ASSET_RENDER_BATCH_SIZE, DEFAULT_CANVAS_VIEW } from "./app/editorConfig.js?v=20260620-designless";
+import { createEditorElements } from "./app/editorElements.js?v=20260620-designless";
+import { editorApi, registerEditorApi, session, setEditorElements, setEditorState } from "./app/editorRuntime.js?v=20260620-designless";
+import * as projectFactory from "./features/projectFactory.js?v=20260620-designless";
+import * as actions from "./features/actions.js?v=20260620-designless";
+import * as layoutController from "./features/layoutController.js?v=20260620-designless";
+import * as menus from "./features/menus.js?v=20260620-designless";
+import * as projectFiles from "./features/projectFiles.js?v=20260620-designless";
+import * as assets from "./features/assets.js?v=20260620-designless";
+import * as documentController from "./features/documentController.js?v=20260620-designless";
+import * as nodeActions from "./features/nodeActions.js?v=20260620-designless";
+import * as sidebarViews from "./features/sidebarViews.js?v=20260620-designless";
+import * as inspector from "./features/inspector.js?v=20260620-designless";
+import * as canvasRenderer from "./features/canvasRenderer.js?v=20260620-designless";
+import * as canvasInteractions from "./features/canvasInteractions.js?v=20260620-designless";
+import * as selectors from "./features/selectors.js?v=20260620-designless";
 
 registerEditorApi(
   projectFactory,

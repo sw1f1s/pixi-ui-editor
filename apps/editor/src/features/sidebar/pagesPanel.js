@@ -1,4 +1,4 @@
-import { closeAtlasEditor, closeComponentAddMenus, createId, createPage, els, getActivePage, render, runCommand, setAddMenuOpen, setAssetContextMenuOpen, setCanvasContextMenuOpen, setDeviceMenuOpen, setHistoryMenuOpen, setLayoutMenuOpen, setPageContextMenuOpen, setProjectMenuOpen, setWindowMenuOpen, state } from "./deps.js";
+import { closeAtlasEditor, closeComponentAddMenus, createId, createPage, els, getActivePage, render, runCommand, setAddMenuOpen, setAssetContextMenuOpen, setCanvasContextMenuOpen, setDeviceMenuOpen, setHistoryMenuOpen, setLayoutMenuOpen, setPageContextMenuOpen, setProjectMenuOpen, setWindowMenuOpen, state } from "./deps.js?v=20260620-designless";
 
 export function renderPages() {
   const query = String(els.pageSearchInput.value || "").trim().toLowerCase();

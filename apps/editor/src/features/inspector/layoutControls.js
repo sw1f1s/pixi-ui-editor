@@ -2,16 +2,16 @@ import {
   els,
   getNodeComponentProps,
   NODE_COMPONENT_TYPES
-} from "./deps.js";
-import { appendInspectorControl } from "./context.js";
-import { updateSelectedNodeLayoutProp } from "./layoutMutations.js";
-import { isRootNode } from "./nodeState.js";
+} from "./deps.js?v=20260620-designless";
+import { appendInspectorControl } from "./context.js?v=20260620-designless";
+import { updateSelectedNodeLayoutProp } from "./layoutMutations.js?v=20260620-designless";
+import { isRootNode } from "./nodeState.js?v=20260620-designless";
 import {
   createFieldGrid,
   createLabeledField,
   createSelect,
   createTextInput
-} from "./controlFactory.js";
+} from "./controlFactory.js?v=20260620-designless";
 
 const VALID_LAYOUT_MODES = new Set(["absolute", "flex", "list", "grid"]);
 

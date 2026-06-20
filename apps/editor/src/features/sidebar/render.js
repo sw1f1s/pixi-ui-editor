@@ -1,8 +1,8 @@
-import { collectNodes, els, getActivePage, getCanvasSize, getCanvasZoomPercent, getProjectFileLabel, getProjectHeaderText, getSelectedNode, renderAtlasEditor, renderCanvas, renderInspector, renderValidation, state } from "./deps.js";
-import { renderPages } from "./pagesPanel.js";
-import { renderComponents } from "./componentsPanel.js";
-import { renderAssets } from "./assetBrowserPanel.js";
-import { getLayerNodeName, renderLayers } from "./layersPanel.js";
+import { collectNodes, els, getActivePage, getCanvasSize, getCanvasZoomPercent, getProjectFileLabel, getProjectHeaderText, getSelectedNode, renderAtlasEditor, renderCanvas, renderInspector, renderValidation, state } from "./deps.js?v=20260620-designless";
+import { renderPages } from "./pagesPanel.js?v=20260620-designless";
+import { renderComponents } from "./componentsPanel.js?v=20260620-designless";
+import { renderAssets } from "./assetBrowserPanel.js?v=20260620-designless";
+import { getLayerNodeName, renderLayers } from "./layersPanel.js?v=20260620-designless";
 
 export function render(options = {}) {
   const page = getActivePage();

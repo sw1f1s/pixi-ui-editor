@@ -1,4 +1,4 @@
-import { getNodeComponent as findNodeComponent, getNodeComponentProps as findNodeComponentProps } from "../../app/editorDeps.js";
+import { getNodeComponent as findNodeComponent, getNodeComponentProps as findNodeComponentProps } from "../../app/editorDeps.js?v=20260620-designless";
 
 export function getNodeComponents(node) {
   const components = Array.isArray(node?.components) ? node.components : [];

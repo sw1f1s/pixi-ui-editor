@@ -1,7 +1,7 @@
 // document export, validation and saved layout state.
-import { els, state, session, bindEditorApi } from "../app/editorRuntime.js";
-import { validateProject, exportPixiUiBundle } from "../app/editorDeps.js";
-import { ASSET_RENDER_BATCH_SIZE, DOCK_ZONE_NAMES, LAYOUT_PROFILE_VERSION, LAYOUT_STORAGE_KEY, MAX_ASSET_TILE_SIZE, MIN_ASSET_TILE_SIZE, PANEL_DEFINITIONS, PROJECT_STORAGE_KEY, createDefaultLayout, createDefaultPanelLayout } from "../app/editorConfig.js";
+import { els, state, session, bindEditorApi } from "../app/editorRuntime.js?v=20260620-designless";
+import { validateProject, exportPixiUiBundle } from "../app/editorDeps.js?v=20260620-designless";
+import { ASSET_RENDER_BATCH_SIZE, DOCK_ZONE_NAMES, LAYOUT_PROFILE_VERSION, LAYOUT_STORAGE_KEY, MAX_ASSET_TILE_SIZE, MIN_ASSET_TILE_SIZE, PANEL_DEFINITIONS, PROJECT_STORAGE_KEY, createDefaultLayout, createDefaultPanelLayout } from "../app/editorConfig.js?v=20260620-designless";
 const { applyLayoutState, clamp, deleteActivePage, deleteSelectedNode, getAssetStorageKey, getInitialPageId, getPanelIdsForZone, normalizeEditorStateAfterProjectChange, persistCurrentProjectDocument, render, restorePersistentAssetSources, serializeProjectForStorage, updateProjectLoading, yieldToBrowser } = bindEditorApi(["applyLayoutState","clamp","deleteActivePage","deleteSelectedNode","getAssetStorageKey","getInitialPageId","getPanelIdsForZone","normalizeEditorStateAfterProjectChange","persistCurrentProjectDocument","render","restorePersistentAssetSources","serializeProjectForStorage","updateProjectLoading","yieldToBrowser"]);
 
 export function exportRuntimeBundle() {

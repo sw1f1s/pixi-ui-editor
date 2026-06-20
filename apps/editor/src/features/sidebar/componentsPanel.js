@@ -1,4 +1,4 @@
-import { canCreateInstanceFromSelectedLayer, clearLayerDropIndicators, els, enterComponentEditMode, getComponentById, getComponentDisplayName, getComponentSummary, getComponentUsageEntries, getSelectedNode, renameComponentDefinition, setAddMenuOpen, setAssetContextMenuOpen, setCanvasContextMenuOpen, setDeviceMenuOpen, setHistoryMenuOpen, setInstanceContextMenuOpen, setLayoutMenuOpen, setPageContextMenuOpen, setProjectMenuOpen, setWindowMenuOpen, state } from "./deps.js";
+import { canCreateInstanceFromSelectedLayer, clearLayerDropIndicators, els, enterComponentEditMode, getComponentById, getComponentDisplayName, getComponentSummary, getComponentUsageEntries, getSelectedNode, renameComponentDefinition, setAddMenuOpen, setAssetContextMenuOpen, setCanvasContextMenuOpen, setDeviceMenuOpen, setHistoryMenuOpen, setInstanceContextMenuOpen, setLayoutMenuOpen, setPageContextMenuOpen, setProjectMenuOpen, setWindowMenuOpen, state } from "./deps.js?v=20260620-designless";
 
 export function renderComponents() {
   const selected = getSelectedNode();

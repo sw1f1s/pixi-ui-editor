@@ -8,11 +8,11 @@ import {
   hasNodeComponent,
   isTextureDropAsset,
   NODE_COMPONENT_TYPES
-} from "./deps.js";
+} from "./deps.js?v=20260620-designless";
 import {
   applyFontAssetToSelectedText,
   updateSelectedSpriteAsset
-} from "./componentMutations.js";
+} from "./componentMutations.js?v=20260620-designless";
 
 const INSPECTOR_DROP_APPLIERS = Object.freeze({
   font: applyFontAssetToSelectedText,

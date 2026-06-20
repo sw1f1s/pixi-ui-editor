@@ -15,20 +15,20 @@ export {
   NODE_COMPONENT_TYPES,
   NODE_TYPES,
   validateProject
-} from "../../../../packages/core/src/index.js";
+} from "../../../../packages/core/src/index.js?v=20260620-designless";
 export {
   createPixiUiProjectBundle,
   exportPixiUiBundle,
   isPixiUiProjectBundle,
   PIXIPROJECTUI_FILE_EXTENSION
-} from "../../../../packages/exporter/src/index.js";
+} from "../../../../packages/exporter/src/index.js?v=20260620-designless";
 export {
   createPlainPixiAdapter,
   createRendererFactory,
   resolveChildLayoutFrames
-} from "../../../../packages/runtime/src/index.js";
+} from "../../../../packages/runtime/src/index.js?v=20260620-designless";
 export {
   moveTransform,
   resizeTransform,
   roundCanvasNumber
-} from "../canvasTransforms.js";
+} from "../canvasTransforms.js?v=20260620-designless";

@@ -1,4 +1,4 @@
-import { NODE_COMPONENT_TYPES, PIXIPROJECTUI_FILE_EXTENSION } from "./editorDeps.js";
+import { NODE_COMPONENT_TYPES, PIXIPROJECTUI_FILE_EXTENSION } from "./editorDeps.js?v=20260620-designless";
 
 export const PROJECT_STORAGE_KEY = "pixi-ui-editor.project.v1";
 export const LAYOUT_STORAGE_KEY = "pixi-ui-editor.layout.v1";

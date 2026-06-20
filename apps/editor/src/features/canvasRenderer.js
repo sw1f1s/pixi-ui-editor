@@ -1,7 +1,7 @@
 // canvas rendering.
-import { els, state, session, bindEditorApi } from "../app/editorRuntime.js";
-import { NODE_COMPONENT_TYPES, NODE_TYPES, validateProject } from "../app/editorDeps.js";
-import { ANCHOR_HANDLE_SIZE, SELECTION_HANDLE_SIZE } from "../app/editorConfig.js";
+import { els, state, session, bindEditorApi } from "../app/editorRuntime.js?v=20260620-designless";
+import { NODE_COMPONENT_TYPES, NODE_TYPES, validateProject } from "../app/editorDeps.js?v=20260620-designless";
+import { ANCHOR_HANDLE_SIZE, SELECTION_HANDLE_SIZE } from "../app/editorConfig.js?v=20260620-designless";
 const { collectWorldNodes, getActivePage, getAnchorHandlesForNode, getAssetById, getAssetImageSrc, getAtlasFrame, getCanvasSize, getComponentById, getComponentReferenceId, getEditableSelectedNode, getFirstAtlasFrameName, getNodeAnchors, getNodeCanvasBounds, getNodeComponentProps, getNodeLocalFrame, getNodeResolvedLocalFrame, getNodeWorldAnchorFrame, getSafeAreaFrame, getSelectionHandles, getTextureNineSliceDefault, getTextureRenderType, getViewport, hasExplicitNodeComponents, hasNodeComponent, isBoundsInside, isComponentInstanceNode, isNodeActive, isNodeLayoutManagedByParent, isTransparentColor, normalizeSafeArea, safeAreaHasInsets, worldBoundsToCanvasBounds } = bindEditorApi(["collectWorldNodes","getActivePage","getAnchorHandlesForNode","getAssetById","getAssetImageSrc","getAtlasFrame","getCanvasSize","getComponentById","getComponentReferenceId","getEditableSelectedNode","getFirstAtlasFrameName","getNodeAnchors","getNodeCanvasBounds","getNodeComponentProps","getNodeLocalFrame","getNodeResolvedLocalFrame","getNodeWorldAnchorFrame","getSafeAreaFrame","getSelectionHandles","getTextureNineSliceDefault","getTextureRenderType","getViewport","hasExplicitNodeComponents","hasNodeComponent","isBoundsInside","isComponentInstanceNode","isNodeActive","isNodeLayoutManagedByParent","isTransparentColor","normalizeSafeArea","safeAreaHasInsets","worldBoundsToCanvasBounds"]);
 
 export function renderValidation() {

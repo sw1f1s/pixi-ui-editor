@@ -1,4 +1,4 @@
-import { normalizeNineSlice, session } from "./deps.js";
+import { normalizeNineSlice, session } from "./deps.js?v=20260620-designless";
 
 export function isImageFile(file) {
   return file.type.startsWith("image/") || /\.(png|jpe?g|webp|gif)$/i.test(file.name);

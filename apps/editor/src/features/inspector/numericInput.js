@@ -1,4 +1,4 @@
-import { clamp } from "./deps.js";
+import { clamp } from "./deps.js?v=20260620-designless";
 
 let numericInputDrag = null;
 let numericInputHover = null;

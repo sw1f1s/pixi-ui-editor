@@ -10,12 +10,12 @@ import {
   isMissingComponentInstanceNode,
   isNodeActive,
   isNodeLayoutManagedByParent
-} from "./deps.js";
-import { addAnchorControls } from "./anchors.js";
-import { addNodeComponentCards, closeComponentAddMenus } from "./componentsPanel.js";
-import { addCheckboxField, addColorField, addField, addFieldRow, addSelectField } from "./fields.js";
-import { withInspectorAppendTarget } from "./context.js";
-import { isRootNode } from "./nodeState.js";
+} from "./deps.js?v=20260620-designless";
+import { addAnchorControls } from "./anchors.js?v=20260620-designless";
+import { addNodeComponentCards, closeComponentAddMenus } from "./componentsPanel.js?v=20260620-designless";
+import { addCheckboxField, addColorField, addField, addFieldRow, addSelectField } from "./fields.js?v=20260620-designless";
+import { withInspectorAppendTarget } from "./context.js?v=20260620-designless";
+import { isRootNode } from "./nodeState.js?v=20260620-designless";
 
 export function renderInspector() {
   closeComponentAddMenus();

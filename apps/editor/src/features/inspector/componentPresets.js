@@ -1,5 +1,5 @@
-import { NODE_COMPONENT_TYPES } from "./deps.js";
-import { getNodeComponentLabel } from "./componentRegistry.js";
+import { NODE_COMPONENT_TYPES } from "./deps.js?v=20260620-designless";
+import { getNodeComponentLabel } from "./componentRegistry.js?v=20260620-designless";
 
 export const COMPONENT_STACK_PRESETS = Object.freeze([
   Object.freeze({

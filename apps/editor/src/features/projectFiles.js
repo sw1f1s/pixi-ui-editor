@@ -1,7 +1,7 @@
 // project file persistence and bundles.
-import { els, state, session, bindEditorApi } from "../app/editorRuntime.js";
-import { createPixiUiProjectBundle, isPixiUiProjectBundle } from "../app/editorDeps.js";
-import { IMPORT_YIELD_INTERVAL, PROJECT_FILE_EXTENSION, PROJECT_FILE_EXTENSIONS, PROJECT_STORAGE_KEY, createDefaultLayout } from "../app/editorConfig.js";
+import { els, state, session, bindEditorApi } from "../app/editorRuntime.js?v=20260620-designless";
+import { createPixiUiProjectBundle, isPixiUiProjectBundle } from "../app/editorDeps.js?v=20260620-designless";
+import { IMPORT_YIELD_INTERVAL, PROJECT_FILE_EXTENSION, PROJECT_FILE_EXTENSIONS, PROJECT_STORAGE_KEY, createDefaultLayout } from "../app/editorConfig.js?v=20260620-designless";
 const { createBlankProject, downloadJsonFile, getAssetById, getAssetStorageKey, getProjectDisplayName, loadProjectDocument, loadStoredProject, openAssetDatabase, readAssetRecord, render, sanitizeFileName, serializeProjectForStorage, setExportPreviewPayload, writeAssetRecords, yieldToBrowser } = bindEditorApi(["createBlankProject","downloadJsonFile","getAssetById","getAssetStorageKey","getProjectDisplayName","loadProjectDocument","loadStoredProject","openAssetDatabase","readAssetRecord","render","sanitizeFileName","serializeProjectForStorage","setExportPreviewPayload","writeAssetRecords","yieldToBrowser"]);
 
 export function showStartupDialogIfNeeded() {

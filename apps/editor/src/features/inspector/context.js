@@ -1,4 +1,4 @@
-import { els } from "./deps.js";
+import { els } from "./deps.js?v=20260620-designless";
 
 let inspectorAppendTarget = null;
 

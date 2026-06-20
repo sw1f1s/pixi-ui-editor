@@ -1,6 +1,6 @@
 // event binding and DOM action wiring.
-import { els, state, bindEditorApi } from "../app/editorRuntime.js";
-import { LAYOUT_PRESETS, createDefaultLayout, createDefaultPanelLayout } from "../app/editorConfig.js";
+import { els, state, bindEditorApi } from "../app/editorRuntime.js?v=20260620-designless";
+import { LAYOUT_PRESETS, createDefaultLayout, createDefaultPanelLayout } from "../app/editorConfig.js?v=20260620-designless";
 const {
   addAtlasFrame,
   applyAtlasFrameForm,

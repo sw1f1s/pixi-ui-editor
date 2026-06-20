@@ -10,14 +10,14 @@ import {
   renameComponentDefinition,
   runCommand,
   state
-} from "./deps.js";
-import { updateAnchoredNodeFrameValue } from "./anchorMutations.js";
-import { updateSelectedNodeComponent } from "./componentMutations.js";
+} from "./deps.js?v=20260620-designless";
+import { updateAnchoredNodeFrameValue } from "./anchorMutations.js?v=20260620-designless";
+import { updateSelectedNodeComponent } from "./componentMutations.js?v=20260620-designless";
 import {
   getSelectedNodeValue,
   isRootNode
-} from "./nodeState.js";
-import { normalizeInspectorValue } from "./valueNormalizers.js";
+} from "./nodeState.js?v=20260620-designless";
+import { normalizeInspectorValue } from "./valueNormalizers.js?v=20260620-designless";
 
 const FRAME_KEYS = new Set(["x", "y", "width", "height"]);
 

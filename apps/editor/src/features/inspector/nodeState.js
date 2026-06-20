@@ -3,7 +3,7 @@ import {
   getNodeAnchors,
   getNodeResolvedLocalFrame,
   isNodeLayoutManagedByParent
-} from "./deps.js";
+} from "./deps.js?v=20260620-designless";
 
 const NODE_VALUE_RESOLVERS = Object.freeze({
   name: (node) => node.name,

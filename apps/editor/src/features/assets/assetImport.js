@@ -1,6 +1,6 @@
-import { ASSET_TYPES, createId, els, IMPORT_YIELD_INTERVAL, persistCurrentProjectDocument, render, renderAssets, resetAssetRenderLimit, runCommand, setExportPreviewPayload, state } from "./deps.js";
-import { createObjectUrlForFile, findLinkedAtlasImageAsset, getFileBaseName, getFileDeviceMeta, getFileExtension, getFileFolder, getFileRelativePath, inferImageMime, isFontFile, isImageFile, isJsonFile, isSpriteAtlasJson, normalizeAtlasFrames, readFileAsText, sanitizeAssetId, yieldToBrowser } from "./fileMeta.js";
-import { persistFileBackedAssets } from "./storage.js";
+import { ASSET_TYPES, createId, els, IMPORT_YIELD_INTERVAL, persistCurrentProjectDocument, render, renderAssets, resetAssetRenderLimit, runCommand, setExportPreviewPayload, state } from "./deps.js?v=20260620-designless";
+import { createObjectUrlForFile, findLinkedAtlasImageAsset, getFileBaseName, getFileDeviceMeta, getFileExtension, getFileFolder, getFileRelativePath, inferImageMime, isFontFile, isImageFile, isJsonFile, isSpriteAtlasJson, normalizeAtlasFrames, readFileAsText, sanitizeAssetId, yieldToBrowser } from "./fileMeta.js?v=20260620-designless";
+import { persistFileBackedAssets } from "./storage.js?v=20260620-designless";
 
 export async function importAssetsFromFiles(event) {
   const files = [...(event.target.files || [])];

@@ -1,4 +1,4 @@
-import { NODE_COMPONENT_LABELS, NODE_COMPONENT_TYPES } from "./deps.js";
+import { NODE_COMPONENT_LABELS, NODE_COMPONENT_TYPES } from "./deps.js?v=20260620-designless";
 
 export const DEFAULT_NODE_COMPONENT_PROPS = Object.freeze({
   [NODE_COMPONENT_TYPES.fill]: Object.freeze({

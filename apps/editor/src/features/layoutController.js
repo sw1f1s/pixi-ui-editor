@@ -1,7 +1,7 @@
 // dock layout and device profiles.
-import { els, state, bindEditorApi } from "../app/editorRuntime.js";
-import { roundCanvasNumber } from "../app/editorDeps.js";
-import { DEVICE_PROFILES, DOCK_ZONE_NAMES, PANEL_DEFINITIONS, createDefaultPanelLayout } from "../app/editorConfig.js";
+import { els, state, bindEditorApi } from "../app/editorRuntime.js?v=20260620-designless";
+import { roundCanvasNumber } from "../app/editorDeps.js?v=20260620-designless";
+import { DEVICE_PROFILES, DOCK_ZONE_NAMES, PANEL_DEFINITIONS, createDefaultPanelLayout } from "../app/editorConfig.js?v=20260620-designless";
 const { clamp, getActivePage, normalizeLayoutState, normalizePanelLayout, renderCanvas, runCommand, saveLayoutState, setAddMenuOpen, setAssetContextMenuOpen, setAssetViewMenuOpen, setCanvasContextMenuOpen, setDeviceMenuOpen, setHistoryMenuOpen, setInstanceContextMenuOpen, setLayoutMenuOpen, setPageContextMenuOpen, setPanelOptionsMenuOpen, setProjectMenuOpen, setWindowMenuOpen, syncAssetViewMenu } = bindEditorApi(["clamp","getActivePage","normalizeLayoutState","normalizePanelLayout","renderCanvas","runCommand","saveLayoutState","setAddMenuOpen","setAssetContextMenuOpen","setAssetViewMenuOpen","setCanvasContextMenuOpen","setDeviceMenuOpen","setHistoryMenuOpen","setInstanceContextMenuOpen","setLayoutMenuOpen","setPageContextMenuOpen","setPanelOptionsMenuOpen","setProjectMenuOpen","setWindowMenuOpen","syncAssetViewMenu"]);
 
 export function renderDeviceProfileList() {

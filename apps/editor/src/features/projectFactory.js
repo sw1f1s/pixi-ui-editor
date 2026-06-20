@@ -1,6 +1,6 @@
 // demo and blank project factories.
-import { bindEditorApi } from "../app/editorRuntime.js";
-import { applyCommand, createPage, createProject, createId, NODE_COMPONENT_TYPES, NODE_TYPES } from "../app/editorDeps.js";
+import { bindEditorApi } from "../app/editorRuntime.js?v=20260620-designless";
+import { applyCommand, createPage, createProject, createId, NODE_COMPONENT_TYPES, NODE_TYPES } from "../app/editorDeps.js?v=20260620-designless";
 const { createNodeComponent, normalizeProjectName, roundedRect } = bindEditorApi(["createNodeComponent","normalizeProjectName","roundedRect"]);
 
 export function seedProject() {

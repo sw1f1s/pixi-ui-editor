@@ -1,6 +1,6 @@
-import { els, state, bindEditorApi } from "../../app/editorRuntime.js";
-import { ASSET_TYPES, collectNodes, createPage, createId, findNodeInProject, NODE_COMPONENT_TYPES } from "../../app/editorDeps.js";
-import { ASSET_RENDER_BATCH_SIZE, MAX_ASSET_TILE_SIZE, MIN_ASSET_TILE_SIZE, PHASE4_CONTROL_TEMPLATES } from "../../app/editorConfig.js";
+import { els, state, bindEditorApi } from "../../app/editorRuntime.js?v=20260620-designless";
+import { ASSET_TYPES, collectNodes, createPage, createId, findNodeInProject, NODE_COMPONENT_TYPES } from "../../app/editorDeps.js?v=20260620-designless";
+import { ASSET_RENDER_BATCH_SIZE, MAX_ASSET_TILE_SIZE, MIN_ASSET_TILE_SIZE, PHASE4_CONTROL_TEMPLATES } from "../../app/editorConfig.js?v=20260620-designless";
 
 const api = bindEditorApi([
   "applyFontAssetToSelectedText",

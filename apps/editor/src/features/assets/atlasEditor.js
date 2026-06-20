@@ -1,5 +1,5 @@
-import { ASSET_TYPES, clamp, els, escapeHtml, getAssetById, getAssetImageSrc, getAtlasFrame, getCachedAssetImage, getFirstAtlasFrameName, getNodeComponentProps, getSelectedNode, hasNodeComponent, NODE_COMPONENT_TYPES, normalizeNineSlice, persistCurrentProjectDocument, renderCanvas, runCommand, state, updateSelectedSpriteFrame } from "./deps.js";
-import { sanitizeAssetId } from "./fileMeta.js";
+import { ASSET_TYPES, clamp, els, escapeHtml, getAssetById, getAssetImageSrc, getAtlasFrame, getCachedAssetImage, getFirstAtlasFrameName, getNodeComponentProps, getSelectedNode, hasNodeComponent, NODE_COMPONENT_TYPES, normalizeNineSlice, persistCurrentProjectDocument, renderCanvas, runCommand, state, updateSelectedSpriteFrame } from "./deps.js?v=20260620-designless";
+import { sanitizeAssetId } from "./fileMeta.js?v=20260620-designless";
 
 export function openSelectedAssetEditor() {
   const asset = getAssetById(state.selectedAssetId);

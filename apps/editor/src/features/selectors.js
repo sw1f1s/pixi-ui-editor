@@ -1,7 +1,7 @@
 // selection, geometry and primitive utilities.
-import { els, state, bindEditorApi } from "../app/editorRuntime.js";
-import { collectNodes, findNodeInProject, getNodeComponentProps, NODE_COMPONENT_TYPES, NODE_TYPES, resolveChildLayoutFrames, roundCanvasNumber } from "../app/editorDeps.js";
-import { ANCHOR_PRESETS, CANVAS_VIEW_PADDING, HORIZONTAL_ANCHOR_KEYS, MAX_CANVAS_ZOOM, MIN_CANVAS_ZOOM, VERTICAL_ANCHOR_KEYS } from "../app/editorConfig.js";
+import { els, state, bindEditorApi } from "../app/editorRuntime.js?v=20260620-designless";
+import { collectNodes, findNodeInProject, getNodeComponentProps, NODE_COMPONENT_TYPES, NODE_TYPES, resolveChildLayoutFrames, roundCanvasNumber } from "../app/editorDeps.js?v=20260620-designless";
+import { ANCHOR_PRESETS, CANVAS_VIEW_PADDING, HORIZONTAL_ANCHOR_KEYS, MAX_CANVAS_ZOOM, MIN_CANVAS_ZOOM, VERTICAL_ANCHOR_KEYS } from "../app/editorConfig.js?v=20260620-designless";
 const { getComponentDisplayName, getLayerNodeName, isRootNode } = bindEditorApi(["getComponentDisplayName","getLayerNodeName","isRootNode"]);
 
 const LAYOUT_MANAGED_MODES = new Set(["flex", "list", "grid"]);

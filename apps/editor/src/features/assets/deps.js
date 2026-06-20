@@ -1,6 +1,6 @@
-import { els, state, session, bindEditorApi } from "../../app/editorRuntime.js";
-import { ASSET_TYPES, createId, NODE_COMPONENT_TYPES } from "../../app/editorDeps.js";
-import { ASSET_BLOB_STORE, ASSET_DATABASE_NAME, ASSET_DATABASE_VERSION, ASSET_DB_URL_PREFIX, IMPORT_YIELD_INTERVAL } from "../../app/editorConfig.js";
+import { els, state, session, bindEditorApi } from "../../app/editorRuntime.js?v=20260620-designless";
+import { ASSET_TYPES, createId, NODE_COMPONENT_TYPES } from "../../app/editorDeps.js?v=20260620-designless";
+import { ASSET_BLOB_STORE, ASSET_DATABASE_NAME, ASSET_DATABASE_VERSION, ASSET_DB_URL_PREFIX, IMPORT_YIELD_INTERVAL } from "../../app/editorConfig.js?v=20260620-designless";
 
 const api = bindEditorApi([
   "clamp",

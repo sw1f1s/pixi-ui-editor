@@ -8,10 +8,10 @@ import {
   getSelectedNode,
   isNodeLayoutManagedByParent,
   runCommand
-} from "./deps.js";
-import { updateNodeLayout } from "./layoutMutations.js";
-import { isRootNode } from "./nodeState.js";
-import { normalizeInspectorValue } from "./valueNormalizers.js";
+} from "./deps.js?v=20260620-designless";
+import { updateNodeLayout } from "./layoutMutations.js?v=20260620-designless";
+import { isRootNode } from "./nodeState.js?v=20260620-designless";
+import { normalizeInspectorValue } from "./valueNormalizers.js?v=20260620-designless";
 
 export function updateSelectedNodeAnchorOffset(key, rawValue, renderOptions = {}) {
   const node = getSelectedNode();

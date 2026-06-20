@@ -3,8 +3,8 @@ import {
   componentKey,
   getNodeComponentProps,
   NODE_COMPONENT_TYPES
-} from "./deps.js";
-import { appendInspectorControl } from "./context.js";
+} from "./deps.js?v=20260620-designless";
+import { appendInspectorControl } from "./context.js?v=20260620-designless";
 import {
   addAtlasFrameField,
   addAssetSelectField,
@@ -16,8 +16,8 @@ import {
   addFontAssetField,
   addSelectField,
   getTextureInspectorState
-} from "./fields.js";
-import { addLayoutComponentControls } from "./layoutControls.js";
+} from "./fields.js?v=20260620-designless";
+import { addLayoutComponentControls } from "./layoutControls.js?v=20260620-designless";
 
 const COMPONENT_FIELD_RENDERERS = Object.freeze({
   [NODE_COMPONENT_TYPES.text]: renderTextComponentFields,

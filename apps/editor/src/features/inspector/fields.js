@@ -10,16 +10,16 @@ import {
   normalizeColorToHex,
   openAtlasEditor,
   selectAssetInBrowser
-} from "./deps.js";
+} from "./deps.js?v=20260620-designless";
 import {
   createFieldGrid,
   createLabeledField,
   createSelect,
   createTextInput
-} from "./controlFactory.js";
-import { appendInspectorControl } from "./context.js";
-import { updateSelectedSpriteFrame } from "./componentMutations.js";
-import { updateSelectedNode } from "./nodeMutations.js";
+} from "./controlFactory.js?v=20260620-designless";
+import { appendInspectorControl } from "./context.js?v=20260620-designless";
+import { updateSelectedSpriteFrame } from "./componentMutations.js?v=20260620-designless";
+import { updateSelectedNode } from "./nodeMutations.js?v=20260620-designless";
 
 export function addField(label, key, value, type = "text") {
   appendInspectorControl(createField(label, key, value, type));

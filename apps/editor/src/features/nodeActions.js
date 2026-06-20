@@ -1,6 +1,6 @@
 // node, component and command operations.
-import { state, session, bindEditorApi } from "../app/editorRuntime.js";
-import { applyCommand, applySnapshotPatch, ASSET_TYPES, clone, createSnapshotPatch, createId, findNodeInProject, NODE_COMPONENT_TYPES, NODE_TYPES, roundCanvasNumber } from "../app/editorDeps.js";
+import { state, session, bindEditorApi } from "../app/editorRuntime.js?v=20260620-designless";
+import { applyCommand, applySnapshotPatch, ASSET_TYPES, clone, createSnapshotPatch, createId, findNodeInProject, NODE_COMPONENT_TYPES, NODE_TYPES, roundCanvasNumber } from "../app/editorDeps.js?v=20260620-designless";
 const { canLayerContainChildren, centerCanvasView, createNodeComponent, createProjectBundleFilename, getActiveEditingComponent, getActivePage, getAssetById, getAssetSpriteSize, getComponentById, getComponentUsageEntries, getNodeLocalFrame, getNodeSubtreeIds, getSelectedNode, getTextureRenderType, isTextureDropAsset, normalizeProjectName, render, roundedRect, sanitizeAssetId, setInstanceContextMenuOpen, worldPointToLocalPoint } = bindEditorApi(["canLayerContainChildren","centerCanvasView","createNodeComponent","createProjectBundleFilename","getActiveEditingComponent","getActivePage","getAssetById","getAssetSpriteSize","getComponentById","getComponentUsageEntries","getNodeLocalFrame","getNodeSubtreeIds","getSelectedNode","getTextureRenderType","isTextureDropAsset","normalizeProjectName","render","roundedRect","sanitizeAssetId","setInstanceContextMenuOpen","worldPointToLocalPoint"]);
 
 export function createUiNode(kind, worldPoint = null, parentIdOverride = null) {

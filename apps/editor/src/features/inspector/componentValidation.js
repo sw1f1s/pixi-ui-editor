@@ -2,7 +2,7 @@ import {
   getAssetById,
   getNodeComponentProps,
   NODE_COMPONENT_TYPES
-} from "./deps.js";
+} from "./deps.js?v=20260620-designless";
 
 export function getComponentValidationMessages(node, componentType) {
   const props = getNodeComponentProps(node, componentType);

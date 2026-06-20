@@ -12,16 +12,16 @@ import {
   registerFontAsset,
   runCommand,
   state
-} from "./deps.js";
+} from "./deps.js?v=20260620-designless";
 import {
   getDefaultNodeComponentProps,
   getNodeComponentLabel
-} from "./componentRegistry.js";
-import { getComponentStackPreset } from "./componentPresets.js";
+} from "./componentRegistry.js?v=20260620-designless";
+import { getComponentStackPreset } from "./componentPresets.js?v=20260620-designless";
 import {
   normalizeComponentInspectorValue,
   normalizeLayoutInspectorValue
-} from "./valueNormalizers.js";
+} from "./valueNormalizers.js?v=20260620-designless";
 
 const LAYOUT_COMPONENT_KEYS = Object.freeze([
   "mode",

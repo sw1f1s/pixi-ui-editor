@@ -4,12 +4,12 @@ import {
   hasNodeComponent,
   NODE_COMPONENT_TYPES,
   runCommand
-} from "./deps.js";
+} from "./deps.js?v=20260620-designless";
 import {
   ensureEditableComponent,
   getEditableNodeComponents
-} from "./componentMutations.js";
-import { normalizeLayoutInspectorValue } from "./valueNormalizers.js";
+} from "./componentMutations.js?v=20260620-designless";
+import { normalizeLayoutInspectorValue } from "./valueNormalizers.js?v=20260620-designless";
 
 export function updateNodeLayout(node, layout, label, options = {}) {
   const args = {

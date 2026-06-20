@@ -1,6 +1,6 @@
-import { ASSET_TYPES, applyFontAssetToSelectedText, canInstantiateComponent, clearInspectorAssetDropTargets, createSpriteNodeFromAsset, els, findNodeInProject, finishComponentDrag, getActivePage, getComponentById, getComponentDisplayName, getComponentReferenceId, instantiateComponent, isComponentInstanceNode, isMissingComponentInstanceNode, isNodeActive, NODE_COMPONENT_TYPES, render, runCommand, selectEditorNode, state, updateSelectedSpriteAsset } from "./deps.js";
-import { hasExplicitNodeComponents, hasNodeComponent, getNodeComponents } from "./nodeComponents.js";
-import { getAssetById, isTextureDropAsset } from "./assetBrowserPanel.js";
+import { ASSET_TYPES, applyFontAssetToSelectedText, canInstantiateComponent, clearInspectorAssetDropTargets, createSpriteNodeFromAsset, els, findNodeInProject, finishComponentDrag, getActivePage, getComponentById, getComponentDisplayName, getComponentReferenceId, instantiateComponent, isComponentInstanceNode, isMissingComponentInstanceNode, isNodeActive, NODE_COMPONENT_TYPES, render, runCommand, selectEditorNode, state, updateSelectedSpriteAsset } from "./deps.js?v=20260620-designless";
+import { hasExplicitNodeComponents, hasNodeComponent, getNodeComponents } from "./nodeComponents.js?v=20260620-designless";
+import { getAssetById, isTextureDropAsset } from "./assetBrowserPanel.js?v=20260620-designless";
 
 export function renderLayers() {
   const page = getActivePage();

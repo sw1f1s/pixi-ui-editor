@@ -7,18 +7,18 @@ import {
   els,
   getNodeAnchorPresetId,
   getNodeAnchors
-} from "./deps.js";
+} from "./deps.js?v=20260620-designless";
 import {
   createFieldGrid,
   createLabeledField,
   createTextInput
-} from "./controlFactory.js";
-import { positionFloatingElement } from "./floatingPosition.js";
+} from "./controlFactory.js?v=20260620-designless";
+import { positionFloatingElement } from "./floatingPosition.js?v=20260620-designless";
 import {
   applyAnchorPreset,
   updateNodeAnchorSafeArea,
   updateSelectedNodeAnchorOffset
-} from "./anchorMutations.js";
+} from "./anchorMutations.js?v=20260620-designless";
 
 export function addAnchorControls(node) {
   const section = document.createElement("section");

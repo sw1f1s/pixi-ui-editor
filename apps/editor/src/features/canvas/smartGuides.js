@@ -1,6 +1,6 @@
-import { bindEditorApi, els } from "../../app/editorRuntime.js";
-import { roundCanvasNumber } from "../../app/editorDeps.js";
-import { DISTANCE_GUIDE_MAX, SMART_GUIDE_PIXEL_THRESHOLD } from "../../app/editorConfig.js";
+import { bindEditorApi, els } from "../../app/editorRuntime.js?v=20260620-designless";
+import { roundCanvasNumber } from "../../app/editorDeps.js?v=20260620-designless";
+import { DISTANCE_GUIDE_MAX, SMART_GUIDE_PIXEL_THRESHOLD } from "../../app/editorConfig.js?v=20260620-designless";
 
 const { collectWorldNodes, getActivePage, getNodeWorldOrigin, getViewport, isNodeActive } = bindEditorApi([
   "collectWorldNodes",
