@@ -165,6 +165,9 @@ export function loadLayoutState() {
       return createDefaultLayout();
     }
     const parsed = JSON.parse(raw);
+    if (parsed?.profileVersion !== LAYOUT_PROFILE_VERSION) {
+      return createDefaultLayout();
+    }
     return normalizeLayoutState(parsed);
   } catch {
     return createDefaultLayout();

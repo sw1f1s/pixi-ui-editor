@@ -2,7 +2,7 @@ import { NODE_COMPONENT_TYPES, PIXIPROJECTUI_FILE_EXTENSION } from "./editorDeps
 
 export const PROJECT_STORAGE_KEY = "pixi-ui-editor.project.v1";
 export const LAYOUT_STORAGE_KEY = "pixi-ui-editor.layout.v1";
-export const LAYOUT_PROFILE_VERSION = 2;
+export const LAYOUT_PROFILE_VERSION = 3;
 export const PROJECT_FILE_EXTENSION = PIXIPROJECTUI_FILE_EXTENSION;
 export const PROJECT_FILE_EXTENSIONS = Object.freeze([`.${PROJECT_FILE_EXTENSION}`]);
 export const ASSET_DATABASE_NAME = "pixi-ui-editor.assets.v1";
@@ -69,8 +69,8 @@ export const PANEL_DEFINITIONS = Object.freeze({
   layers: { title: "Layers", defaultZone: "left", defaultOrder: 0 },
   inspector: { title: "Inspector", defaultZone: "right", defaultOrder: 0 },
   validation: { title: "Validation", defaultZone: "right", defaultOrder: 1, defaultVisible: false },
-  pages: { title: "Pages", defaultZone: "bottom", defaultOrder: 0, defaultSize: 320 },
-  components: { title: "Instances", defaultZone: "bottom", defaultOrder: 1, defaultSize: 320 },
+  pages: { title: "Pages", defaultZone: "bottom", defaultOrder: 0, defaultSize: 390 },
+  components: { title: "Instances", defaultZone: "bottom", defaultOrder: 1, defaultSize: 390 },
   assets: { title: "Assets", defaultZone: "bottom", defaultOrder: 2 }
 });
 export const DOCK_ZONE_NAMES = Object.freeze(["left", "right", "bottom"]);
@@ -89,12 +89,12 @@ export function createDefaultPanelLayout() {
 export function createDefaultLayout(overrides = {}) {
   return {
     profileVersion: LAYOUT_PROFILE_VERSION,
-    leftPanelWidth: 320,
-    rightPanelWidth: 380,
-    bottomPanelHeight: 360,
+    leftPanelWidth: 390,
+    rightPanelWidth: 500,
+    bottomPanelHeight: 270,
     validationPanelHeight: 156,
-    assetFolderWidth: 220,
-    assetTileSize: 88,
+    assetFolderWidth: 266,
+    assetTileSize: 78,
     assetGridEnabled: true,
     leftCollapsed: false,
     rightCollapsed: false,

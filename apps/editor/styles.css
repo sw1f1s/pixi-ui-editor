@@ -11,12 +11,12 @@
   --danger: #ff6b6b;
   --canvas: #10131f;
   --input: #17191f;
-  --left-panel-width: 320px;
-  --right-panel-width: 380px;
-  --bottom-panel-height: 360px;
+  --left-panel-width: 390px;
+  --right-panel-width: 500px;
+  --bottom-panel-height: 270px;
   --validation-panel-height: 156px;
   --splitter-size: 6px;
-  --asset-tile-size: 88px;
+  --asset-tile-size: 78px;
 }
 
 * {
