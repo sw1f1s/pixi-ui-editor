@@ -1,0 +1,12 @@
+{
+  "name": "@pixi-ui-editor/mcp-server",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "MCP server catalog and JSON-RPC handlers for Pixi UI Editor.",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "bin": {
+    "pixi-ui-mcp": "./bin/pixi-ui-mcp.mjs"
+  }
+}

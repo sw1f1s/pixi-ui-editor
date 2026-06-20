@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pixi UI Editor</title>
+    <base href="/apps/editor/">
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-mark">PX</span>
+          <div>
+            <strong>Pixi UI Editor</strong>
+            <span id="projectMeta">Initializing</span>
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <div class="project-controls" aria-label="Project file operations">
+            <button id="projectMenuButton" type="button" aria-expanded="false" aria-controls="projectMenu">Project</button>
+            <div id="projectMenu" class="dropdown-menu project-menu" hidden>
+              <div class="menu-group">
+                <span>Project file</span>
+                <button id="newProjectButton" class="menu-command" type="button">
+                  <span>New Project</span>
+                  <span class="shortcut-keys"><kbd>Ctrl/⌘</kbd><kbd>N</kbd></span>
+                </button>
+                <button id="renameProjectButton" type="button">Rename Project</button>
+                <button id="openProjectFileButton" class="menu-command" type="button">
+                  <span>Open Project File</span>
+                  <span class="shortcut-keys"><kbd>Ctrl/⌘</kbd><kbd>O</kbd></span>
+                </button>
+                <button id="saveProjectFileButton" class="menu-command" type="button">
+                  <span>Save Project File</span>
+                  <span class="shortcut-keys"><kbd>Ctrl/⌘</kbd><kbd>S</kbd></span>
+                </button>
+              </div>
+              <div class="menu-group">
+                <span>Actions</span>
+                <span id="historyLabel" class="menu-status">0 commands</span>
+                <button id="undoButton" class="menu-command" type="button" title="Undo (Ctrl/Cmd+Z)" disabled>
+                  <span>Undo</span>
+                  <span class="shortcut-keys"><kbd>Ctrl/⌘</kbd><kbd>Z</kbd></span>
+                </button>
+                <button id="redoButton" class="menu-command" type="button" title="Redo (Ctrl/Cmd+Shift+Z)" disabled>
+                  <span>Redo</span>
+                  <span class="shortcut-keys"><kbd>Ctrl/⌘</kbd><kbd>Shift</kbd><kbd>Z</kbd></span>
+                </button>
+              </div>
+              <div class="menu-group">
+                <span>Export</span>
+                <button id="exportButton" type="button">Runtime Bundle</button>
+              </div>
+            </div>
+            <input id="importFileInput" type="file" accept=".pixiprojectui" hidden>
+          </div>
+          <div class="window-controls">
+            <button id="windowMenuButton" type="button" aria-expanded="false" aria-controls="windowMenu">Window</button>
+            <div id="windowMenu" class="dropdown-menu window-menu" hidden>
+              <div class="menu-group">
+                <span>Windows</span>
+                <div id="windowMenuList" class="window-menu-list"></div>
+              </div>
+              <div class="menu-group">
+                <span>Layout</span>
+                <button id="resetWindowsButton" type="button">Restore default windows</button>
+              </div>
+            </div>
+          </div>
+          <div class="add-controls">
+            <button id="addMenuButton" type="button" aria-expanded="false" aria-controls="addMenu">Add</button>
+            <div id="addMenu" class="dropdown-menu add-menu" hidden>
+              <div class="menu-group">
+                <span>Create</span>
+                <button type="button" data-add-node="text">Text</button>
+                <button type="button" data-add-node="sprite">Sprite</button>
+                <button type="button" data-add-node="button">Button</button>
+                <button type="button" data-add-node="panel">Panel</button>
+                <button type="button" data-add-node="toggle">Toggle</button>
+                <button type="button" data-add-node="checkbox">Checkbox</button>
+                <button type="button" data-add-node="radio">Radio</button>
+                <button type="button" data-add-node="slider">Slider</button>
+                <button type="button" data-add-node="input">Input</button>
+                <button type="button" data-add-node="dropdown">Dropdown</button>
+                <button type="button" data-add-node="progressBar">Progress</button>
+                <button type="button" data-add-node="scrollPanel">Scroll</button>
+                <button type="button" data-add-node="list">List</button>
+              </div>
+            </div>
+          </div>
+          <div class="layout-controls">
+            <button id="layoutMenuButton" type="button" aria-expanded="false" aria-controls="layoutMenu">Layout</button>
+            <div id="layoutMenu" class="dropdown-menu layout-menu" hidden>
+              <div class="menu-group">
+                <span>Presets</span>
+                <button type="button" data-layout-preset="default">Default</button>
+                <button type="button" data-layout-preset="wide-canvas">Wide canvas</button>
+                <button type="button" data-layout-preset="inspector-focus">Inspector focus</button>
+              </div>
+              <div class="menu-group">
+                <span>Panels</span>
+                <button id="toggleLeftPanelButton" type="button">Left panel</button>
+                <button id="toggleRightPanelButton" type="button">Right panel</button>
+                <button id="toggleBottomPanelButton" type="button">Bottom panel</button>
+              </div>
+              <button id="resetLayoutButton" type="button">Reset layout</button>
+            </div>
+          </div>
+          <div class="design-controls">
+            <button id="designDialogButton" type="button" aria-expanded="false" aria-controls="designDialog">Design</button>
+          </div>
+        </div>
+      </header>
+
+      <aside class="sidebar sidebar-left dock-zone" data-dock-zone="left">
+        <section class="panel dock-panel pages-panel" data-panel-id="pages">
+          <div class="panel-header">
+            <h2>Pages</h2>
+            <input id="pageSearchInput" class="panel-search-input" type="search" placeholder="Search" aria-label="Search pages">
+            <button id="addPageButton" type="button" title="Create a new page" hidden>Add</button>
+            <button id="deletePageButton" type="button" title="Delete selected page" hidden>Delete</button>
+          </div>
+          <div id="pagesList" class="list"></div>
+        </section>
+        <section class="panel dock-panel components-panel" data-panel-id="components">
+          <div class="panel-header">
+            <h2>Instances</h2>
+            <input id="instanceSearchInput" class="panel-search-input" type="search" placeholder="Search" aria-label="Search instances">
+            <button id="createComponentButton" type="button" title="Create instance from selected layer" hidden>Create</button>
+          </div>
+          <div id="componentsList" class="list components-list"></div>
+        </section>
+        <section class="panel dock-panel panel-grow layers-panel" data-panel-id="layers">
+          <div class="panel-header">
+            <button id="backToPageButton" class="panel-back-button" type="button" title="Back to page" aria-label="Back to page" hidden>←</button>
+            <h2>Layers</h2>
+          </div>
+          <div id="layersList" class="tree"></div>
+        </section>
+      </aside>
+
+      <div class="resize-handle resize-handle-vertical resize-handle-left" data-resize-handle="left" title="Resize left panel"></div>
+
+      <main class="workspace">
+        <div class="canvas-toolbar">
+          <div class="canvas-toolbar-left">
+            <span id="canvasLabel">Main / 1080x1920</span>
+            <div class="device-controls">
+              <button id="deviceMenuButton" type="button" aria-expanded="false" aria-controls="deviceMenu">Device</button>
+              <div id="deviceMenu" class="dropdown-menu device-menu" hidden>
+                <div class="menu-group">
+                  <span>Profiles</span>
+                  <div id="deviceProfileList" class="device-profile-list"></div>
+                </div>
+                <form id="customDeviceForm" class="custom-device-form">
+                  <span>Custom size</span>
+                  <input id="customDeviceName" type="text" value="Custom" aria-label="Custom device name">
+                  <div class="field-grid">
+                    <input id="customDeviceWidth" type="number" min="1" value="1080" aria-label="Custom device width">
+                    <input id="customDeviceHeight" type="number" min="1" value="1920" aria-label="Custom device height">
+                  </div>
+                  <button type="submit">Apply custom</button>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="canvas-toolbar-right">
+            <span id="selectionLabel">No selection</span>
+            <div class="zoom-controls">
+              <input id="zoomSlider" type="range" min="20" max="600" step="5" value="100" aria-label="Canvas zoom">
+              <span id="zoomValue">100%</span>
+              <button id="centerCanvasButton" type="button">Center</button>
+              <button id="fillCanvasButton" type="button">Fill</button>
+            </div>
+          </div>
+        </div>
+        <canvas id="editorCanvas" width="1280" height="900"></canvas>
+        <div id="canvasContextMenu" class="canvas-context-menu" hidden>
+          <div class="context-menu-parent">
+            <button id="contextAddMenuButton" type="button" class="context-menu-item" aria-haspopup="true" aria-expanded="false">
+              <span>Add</span>
+              <span class="context-menu-arrow">›</span>
+            </button>
+            <div class="context-submenu">
+              <button type="button" data-add-node="text">Text</button>
+              <button type="button" data-add-node="sprite">Sprite</button>
+              <button type="button" data-add-node="button">Button</button>
+              <button type="button" data-add-node="panel">Panel</button>
+              <button type="button" data-add-node="toggle">Toggle</button>
+              <button type="button" data-add-node="checkbox">Checkbox</button>
+              <button type="button" data-add-node="radio">Radio</button>
+              <button type="button" data-add-node="slider">Slider</button>
+              <button type="button" data-add-node="input">Input</button>
+              <button type="button" data-add-node="dropdown">Dropdown</button>
+              <button type="button" data-add-node="progressBar">Progress</button>
+              <button type="button" data-add-node="scrollPanel">Scroll</button>
+              <button type="button" data-add-node="list">List</button>
+            </div>
+          </div>
+          <button id="contextCopyNodeButton" type="button" class="context-menu-item menu-command" hidden>
+            <span>Copy</span>
+            <span class="shortcut-keys"><kbd>Ctrl/⌘</kbd><kbd>C</kbd></span>
+          </button>
+          <button id="contextPasteNodeButton" type="button" class="context-menu-item menu-command" hidden>
+            <span>Paste</span>
+            <span class="shortcut-keys"><kbd>Ctrl/⌘</kbd><kbd>V</kbd></span>
+          </button>
+          <button id="contextDeleteNodeButton" type="button" class="context-menu-item menu-command context-menu-danger" hidden>
+            <span>Delete</span>
+            <span class="shortcut-keys"><kbd>Del</kbd></span>
+          </button>
+          <button id="contextCreateInstanceButton" type="button" class="context-menu-item" hidden>
+            <span>Create Instance</span>
+          </button>
+          <button id="contextEditInstanceButton" type="button" class="context-menu-item" hidden>
+            <span>Edit Instance</span>
+          </button>
+          <button id="contextDetachInstanceButton" type="button" class="context-menu-item" hidden>
+            <span>Detach Instance</span>
+          </button>
+        </div>
+      </main>
+
+      <div class="resize-handle resize-handle-vertical resize-handle-right" data-resize-handle="right" title="Resize right panel"></div>
+
+      <aside class="sidebar sidebar-right dock-zone" data-dock-zone="right">
+        <section class="panel dock-panel inspector-panel" data-panel-id="inspector">
+          <div class="panel-header">
+            <h2>Inspector</h2>
+          </div>
+          <form id="inspectorForm" class="inspector"></form>
+        </section>
+        <section class="panel dock-panel validation-panel" data-panel-id="validation">
+          <div class="panel-header">
+            <h2>Validation</h2>
+          </div>
+          <div id="validationList" class="validation-list"></div>
+        </section>
+      </aside>
+
+      <div class="resize-handle resize-handle-horizontal resize-handle-bottom" data-resize-handle="bottom" title="Resize bottom panel"></div>
+
+      <section class="bottom-panel dock-zone" data-dock-zone="bottom">
+        <section class="panel dock-panel assets-panel" data-panel-id="assets">
+          <div class="panel-header">
+            <h2>Assets</h2>
+            <div class="asset-header-controls">
+              <select id="assetTypeFilter" aria-label="Asset type filter">
+                <option value="all">All assets</option>
+                <option value="texture">Textures</option>
+                <option value="spriteAtlas">Atlases</option>
+                <option value="font">Fonts</option>
+              </select>
+              <input id="assetSearchInput" type="search" placeholder="Search" aria-label="Search assets">
+              <label class="asset-size-control" title="Asset thumbnail size">
+                <input id="assetTileSizeSlider" type="range" min="32" max="160" step="1" value="88" aria-label="Asset tile size">
+              </label>
+            </div>
+            <div class="asset-view-controls">
+              <button id="assetViewMenuButton" class="asset-view-menu-button" type="button" aria-expanded="false" aria-controls="assetViewMenu" title="Asset view options" aria-label="Asset view options">
+                <span class="asset-view-icon" aria-hidden="true"></span>
+              </button>
+            </div>
+          </div>
+          <div id="assetBrowser" class="asset-browser">
+            <aside id="assetFolderList" class="asset-folders" aria-label="Asset folders"></aside>
+            <div id="assetFolderResizeHandle" class="asset-folder-resize" title="Resize folders"></div>
+            <div id="assetsList" class="assets-list"></div>
+          </div>
+          <input id="assetFileInput" type="file" multiple accept="image/png,image/jpeg,image/webp,image/gif,application/json,.json,.ttf,.otf,.woff,.woff2,.fnt,font/*" hidden>
+          <input id="assetFolderInput" type="file" multiple webkitdirectory directory hidden>
+        </section>
+      </section>
+      <div id="assetViewMenu" class="dropdown-menu asset-view-menu" hidden>
+        <div class="menu-group">
+          <span>Assets</span>
+          <button id="importAssetsButton" type="button" title="Import textures, atlases and fonts">Import</button>
+          <button id="importAssetFolderButton" type="button" title="Import an entire folder">Folder</button>
+          <button id="clearAssetsButton" type="button" title="Clear imported assets and persistent asset storage">Clear</button>
+        </div>
+        <div class="menu-group">
+          <span>View</span>
+          <button id="assetGridToggle" class="asset-view-mode" type="button" aria-pressed="true">
+            <span>Grid</span>
+            <span class="asset-view-check" aria-hidden="true">✓</span>
+          </button>
+          <button id="assetListToggle" class="asset-view-mode" type="button" aria-pressed="false">
+            <span>List</span>
+            <span class="asset-view-check" aria-hidden="true">✓</span>
+          </button>
+        </div>
+        <div class="menu-group">
+          <button id="assetClosePanelButton" class="context-menu-danger" type="button">Close</button>
+        </div>
+      </div>
+      <div id="assetContextMenu" class="asset-context-menu" hidden>
+        <button id="assetContextSpriteEditorButton" type="button">Sprite Editor</button>
+        <button id="assetContextOpenFolderButton" type="button">Reveal in Folder</button>
+      </div>
+      <div id="pageContextMenu" class="page-context-menu" hidden>
+        <button id="pageContextAddButton" type="button">Add Page</button>
+        <button id="pageContextRenameButton" type="button">Rename Page</button>
+        <button id="pageContextDeleteButton" type="button" class="context-menu-danger">Delete Page</button>
+      </div>
+      <div id="instanceContextMenu" class="instance-context-menu" hidden>
+        <button id="instanceContextEditButton" type="button">Edit</button>
+        <button id="instanceContextRenameButton" type="button">Rename</button>
+        <button id="instanceContextSelectUsageButton" type="button">Select usage</button>
+        <button id="instanceContextDeleteButton" type="button" class="context-menu-danger">Delete</button>
+      </div>
+      <pre id="exportPreview" hidden></pre>
+    </div>
+
+    <div id="designDialog" class="design-dialog" hidden>
+      <section class="design-window" role="dialog" aria-modal="true" aria-labelledby="designDialogTitle">
+        <header class="design-window-header">
+          <h2 id="designDialogTitle">Design</h2>
+          <select id="designThemeSelect" class="panel-search-input" aria-label="Preview theme"></select>
+          <button id="designDialogCloseButton" type="button" title="Close Design">x</button>
+        </header>
+        <div id="designSystemPanel" class="design-system-list"></div>
+      </section>
+    </div>
+
+    <div id="startupDialog" class="startup-dialog" hidden>
+      <section class="startup-card" role="dialog" aria-modal="true" aria-labelledby="startupTitle">
+        <span class="brand-mark">PX</span>
+        <h1 id="startupTitle">Pixi UI Editor</h1>
+        <div class="startup-actions">
+          <button id="startupOpenProjectButton" type="button">Open Project</button>
+          <button id="startupNewProjectButton" type="button">New Project</button>
+          <button id="startupContinueButton" type="button">Continue Browser Project</button>
+        </div>
+      </section>
+    </div>
+
+    <div id="projectLoadingDialog" class="project-loading-dialog" hidden>
+      <section class="project-loading-card" role="dialog" aria-modal="true" aria-labelledby="projectLoadingTitle">
+        <div class="project-loading-spinner" aria-hidden="true"></div>
+        <div>
+          <h2 id="projectLoadingTitle">Opening project</h2>
+          <p id="projectLoadingDetail">Preparing workspace...</p>
+        </div>
+      </section>
+    </div>
+
+    <div id="atlasEditorDialog" class="atlas-editor-dialog" hidden>
+      <section class="atlas-editor-window" role="dialog" aria-modal="true" aria-labelledby="atlasEditorTitle">
+        <header class="atlas-editor-header">
+          <div>
+            <span>Sprite Editor</span>
+            <h2 id="atlasEditorTitle">Atlas</h2>
+          </div>
+          <div class="atlas-editor-actions">
+            <button id="atlasEditorAddFrameButton" type="button">Add Frame</button>
+            <button id="atlasEditorApplyButton" type="button">Apply</button>
+            <button id="atlasEditorCloseButton" type="button" title="Close Sprite Editor">x</button>
+          </div>
+        </header>
+        <div class="atlas-editor-body">
+          <aside id="atlasFrameList" class="atlas-frame-list" aria-label="Atlas frames"></aside>
+          <div class="atlas-preview-pane">
+            <canvas id="atlasPreviewCanvas" width="720" height="480"></canvas>
+          </div>
+          <form id="atlasFrameForm" class="atlas-frame-form">
+            <label>
+              <span>Sprite Mode</span>
+              <select id="atlasSpriteMode">
+                <option value="single">Single</option>
+                <option value="multi">Multi</option>
+              </select>
+            </label>
+            <label>
+              <span>Name</span>
+              <input id="atlasFrameName" type="text">
+            </label>
+            <div class="field-grid">
+              <label>
+                <span>X</span>
+                <input id="atlasFrameX" type="number" min="0">
+              </label>
+              <label>
+                <span>Y</span>
+                <input id="atlasFrameY" type="number" min="0">
+              </label>
+            </div>
+            <div class="field-grid">
+              <label>
+                <span>Width</span>
+                <input id="atlasFrameWidth" type="number" min="1">
+              </label>
+              <label>
+                <span>Height</span>
+                <input id="atlasFrameHeight" type="number" min="1">
+              </label>
+            </div>
+            <div class="field-grid">
+              <label>
+                <span>Source W</span>
+                <input id="atlasFrameSourceWidth" type="number" min="1">
+              </label>
+              <label>
+                <span>Source H</span>
+                <input id="atlasFrameSourceHeight" type="number" min="1">
+              </label>
+            </div>
+            <div class="field-grid">
+              <label>
+                <span>Offset X</span>
+                <input id="atlasFrameOffsetX" type="number">
+              </label>
+              <label>
+                <span>Offset Y</span>
+                <input id="atlasFrameOffsetY" type="number">
+              </label>
+            </div>
+            <div class="atlas-form-section">9 Slice Insets</div>
+            <div class="field-grid">
+              <label>
+                <span>Left</span>
+                <input id="atlasFrameSliceLeft" type="number" min="0" step="1">
+              </label>
+              <label>
+                <span>Right</span>
+                <input id="atlasFrameSliceRight" type="number" min="0" step="1">
+              </label>
+            </div>
+            <div class="field-grid">
+              <label>
+                <span>Top</span>
+                <input id="atlasFrameSliceTop" type="number" min="0" step="1">
+              </label>
+              <label>
+                <span>Bottom</span>
+                <input id="atlasFrameSliceBottom" type="number" min="0" step="1">
+              </label>
+            </div>
+            <label class="checkbox-field">
+              <input id="atlasFrameRotated" type="checkbox">
+              <span>Rotated</span>
+            </label>
+            <label class="checkbox-field">
+              <input id="atlasFrameTrimmed" type="checkbox">
+              <span>Trimmed</span>
+            </label>
+            <button id="atlasEditorDeleteFrameButton" type="button">Delete Frame</button>
+          </form>
+        </div>
+      </section>
+    </div>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>

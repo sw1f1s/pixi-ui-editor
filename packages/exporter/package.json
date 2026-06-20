@@ -1,0 +1,14 @@
+{
+  "name": "@pixi-ui-editor/exporter",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Dependency-free Pixi UI Editor export manifest builder.",
+  "exports": {
+    ".": "./src/index.js",
+    "./helpers": "./src/helpers.js",
+    "./manifest": "./src/manifest.js",
+    "./normalize": "./src/normalize.js"
+  },
+  "sideEffects": false
+}

@@ -1,0 +1,21 @@
+{
+  "name": "pixi-ui-editor",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Browser-based Pixi UI editor architecture, runtime, exporter and MCP integration.",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "node apps/editor/server.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "smoke": "node tools/run-smoke-tests.mjs",
+    "check": "npm run test",
+    "validate:sample": "node tools/validate-sample.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

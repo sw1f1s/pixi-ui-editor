@@ -1,0 +1,15 @@
+{
+  "name": "@pixi-ui-editor/runtime",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Dependency-free Pixi UI Editor runtime core with adapter-based rendering.",
+  "exports": {
+    ".": "./src/index.js",
+    "./helpers": "./src/helpers.js",
+    "./plain-adapter": "./src/plain-adapter.js",
+    "./pixi-adapter": "./src/pixi-adapter.js",
+    "./render-tree": "./src/render-tree.js"
+  },
+  "sideEffects": false
+}

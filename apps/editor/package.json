@@ -1,0 +1,10 @@
+{
+  "name": "@pixi-ui-editor/editor",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Browser editor shell for Pixi UI Editor.",
+  "scripts": {
+    "dev": "node server.mjs"
+  }
+}

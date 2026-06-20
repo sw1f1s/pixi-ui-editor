@@ -1,0 +1,9 @@
+{
+  "name": "@pixi-ui-editor/core",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Core schema, commands and validation for Pixi UI Editor.",
+  "exports": {
+    ".": "./src/index.js"
+  }
+}
