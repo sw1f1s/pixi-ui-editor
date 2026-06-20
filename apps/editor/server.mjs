@@ -28,9 +28,7 @@ createServer(async (request, response) => {
       return;
     }
 
-    const pathname = url.pathname === "/" || url.pathname === "/apps/editor/"
-      ? "/apps/editor/index.html"
-      : url.pathname;
+    const pathname = getStaticPathname(url.pathname);
     const filePath = normalize(join(root, pathname));
 
     if (!filePath.startsWith(root)) {
@@ -54,6 +52,16 @@ createServer(async (request, response) => {
 }).listen(port, () => {
   console.log(`Pixi UI Editor dev server: http://localhost:${port}`);
 });
+
+function getStaticPathname(pathname) {
+  if (pathname === "/") {
+    return "/index.html";
+  }
+  if (pathname === "/apps/editor/") {
+    return "/apps/editor/index.html";
+  }
+  return pathname;
+}
 
 async function handleRevealRequest(request, response) {
   if (request.method !== "POST" || request.headers["x-pixi-editor-action"] !== "reveal") {

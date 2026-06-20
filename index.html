@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pixi UI Editor</title>
+    <meta http-equiv="refresh" content="0; url=./apps/editor/">
+    <link rel="canonical" href="./apps/editor/">
+    <script>
+      const editorUrl = new URL("./apps/editor/", window.location.href);
+      editorUrl.search = window.location.search;
+      editorUrl.hash = window.location.hash;
+      window.location.replace(editorUrl);
+    </script>
+  </head>
+  <body>
+    <p><a href="./apps/editor/">Open Pixi UI Editor</a></p>
+  </body>
+</html>
