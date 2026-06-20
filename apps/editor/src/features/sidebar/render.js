@@ -1,7 +1,6 @@
 import { collectNodes, els, getActivePage, getCanvasSize, getCanvasZoomPercent, getProjectFileLabel, getProjectHeaderText, getSelectedNode, renderAtlasEditor, renderCanvas, renderInspector, renderValidation, state } from "./deps.js";
 import { renderPages } from "./pagesPanel.js";
 import { renderComponents } from "./componentsPanel.js";
-import { renderDesignSystem } from "./designSystemPanel.js";
 import { renderAssets } from "./assetBrowserPanel.js";
 import { getLayerNodeName, renderLayers } from "./layersPanel.js";
 
@@ -25,7 +24,6 @@ export function render(options = {}) {
 
   renderPages();
   renderComponents();
-  renderDesignSystem();
   renderAssets();
   renderLayers();
   if (!options.preserveInspector) {

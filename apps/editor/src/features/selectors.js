@@ -433,27 +433,8 @@ export function getComponentUsageEntries(componentId) {
   return entries;
 }
 
-export function getComponentDesignSummary(component) {
+export function getComponentSummary(component) {
   const nodes = collectNodes(component?.rootNode).map((entry) => entry.node);
-  const componentCounts = new Map();
-  let tokenRefs = 0;
-  let styleNodes = 0;
-
-  for (const node of nodes) {
-    for (const nodeComponent of node.components || []) {
-      const type = nodeComponent?.type || nodeComponent?.kind || nodeComponent?.id;
-      if (!type) {
-        continue;
-      }
-      componentCounts.set(type, (componentCounts.get(type) || 0) + 1);
-      if ([NODE_COMPONENT_TYPES.fill, NODE_COMPONENT_TYPES.text, NODE_COMPONENT_TYPES.shadow, NODE_COMPONENT_TYPES.outline, NODE_COMPONENT_TYPES.texture].includes(type)) {
-        styleNodes += 1;
-      }
-      tokenRefs += countTokenReferences(nodeComponent.props || {});
-    }
-    tokenRefs += countTokenReferences(node.style || {});
-  }
-
   const variants = Array.isArray(component?.variants) ? component.variants : [];
   const exposedProps = component?.exposedProps && typeof component.exposedProps === "object"
     ? Object.keys(component.exposedProps).length
@@ -463,23 +444,7 @@ export function getComponentDesignSummary(component) {
     variants: variants.length,
     variantLabels: variants.map((variant, index) => String(variant?.name || variant?.id || `Variant ${index + 1}`)),
     exposedProps,
-    usageCount: getComponentUsageEntries(component?.id).length,
-    styleNodes,
-    tokenRefs,
-    componentCounts: Object.fromEntries(componentCounts)
-  };
-}
-
-export function getProjectStyleLibrarySummary() {
-  const tokens = state.project?.tokens || {};
-  const tokenCounts = Object.fromEntries(Object.entries(tokens)
-    .map(([group, values]) => [group, values && typeof values === "object" ? Object.keys(values).length : 0]));
-  const totalTokens = Object.values(tokenCounts).reduce((total, count) => total + count, 0);
-  return {
-    tokenCounts,
-    totalTokens,
-    themes: Array.isArray(state.project?.themes) ? state.project.themes.length : 0,
-    styleLibraries: Array.isArray(state.project?.styleLibraries) ? state.project.styleLibraries.length : 0
+    usageCount: getComponentUsageEntries(component?.id).length
   };
 }
 
@@ -489,18 +454,6 @@ function isComponentUsageNode(node, componentId) {
 
 function getComponentInstanceReferenceId(node) {
   return node?.props?.componentId || node?.componentId || node?.editorMeta?.componentId || null;
-}
-
-function countTokenReferences(value) {
-  if (!value || typeof value !== "object") {
-    return isTokenReference(value) ? 1 : 0;
-  }
-  return Object.values(value).reduce((total, child) => total + countTokenReferences(child), 0);
-}
-
-function isTokenReference(value) {
-  const text = typeof value === "string" ? value.trim() : "";
-  return text.startsWith("token:") || text.startsWith("$") || /^\{[^{}]+?\.[^{}]+?\}$/.test(text);
 }
 
 export function getEditableSelectedNode() {

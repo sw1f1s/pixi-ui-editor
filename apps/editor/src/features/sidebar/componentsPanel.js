@@ -1,4 +1,4 @@
-import { canCreateInstanceFromSelectedLayer, clearLayerDropIndicators, els, enterComponentEditMode, getComponentById, getComponentDesignSummary, getComponentDisplayName, getComponentUsageEntries, getSelectedNode, renameComponentDefinition, setAddMenuOpen, setAssetContextMenuOpen, setCanvasContextMenuOpen, setDeviceMenuOpen, setHistoryMenuOpen, setInstanceContextMenuOpen, setLayoutMenuOpen, setPageContextMenuOpen, setProjectMenuOpen, setWindowMenuOpen, state } from "./deps.js";
+import { canCreateInstanceFromSelectedLayer, clearLayerDropIndicators, els, enterComponentEditMode, getComponentById, getComponentDisplayName, getComponentSummary, getComponentUsageEntries, getSelectedNode, renameComponentDefinition, setAddMenuOpen, setAssetContextMenuOpen, setCanvasContextMenuOpen, setDeviceMenuOpen, setHistoryMenuOpen, setInstanceContextMenuOpen, setLayoutMenuOpen, setPageContextMenuOpen, setProjectMenuOpen, setWindowMenuOpen, state } from "./deps.js";
 
 export function renderComponents() {
   const selected = getSelectedNode();
@@ -27,7 +27,7 @@ export function renderComponents() {
   }
 
   children.push(...components.map((component) => {
-    const summary = getComponentDesignSummary(component);
+    const summary = getComponentSummary(component);
     const item = document.createElement("div");
     item.tabIndex = 0;
     item.setAttribute("role", "button");
@@ -65,7 +65,7 @@ export function renderComponents() {
 }
 
 function getComponentSearchText(component) {
-  const summary = getComponentDesignSummary(component);
+  const summary = getComponentSummary(component);
   return [
     getComponentDisplayName(component),
     component.name,

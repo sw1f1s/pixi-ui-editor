@@ -1,6 +1,58 @@
 // menus and keyboard shortcuts.
 import { els, state, bindEditorApi } from "../app/editorRuntime.js";
-const { canCopySelectedNode, canCreateInstanceFromSelectedLayer, canDeleteSelectedNode, canEditSelectedInstanceNode, canPasteNodeFromClipboard, clamp, closeAnchorPresetMenus, closeComponentAddMenus, copySelectedNodeToClipboard, createNewProjectFromDeviceFlow, getAssetById, getComponentById, getSelectedNode, handleDeleteSelectedNodeShortcut, handleDeleteSelectedPageShortcut, isComponentInstanceNode, isMissingComponentInstanceNode, isTextEditingTarget, isTextureDropAsset, openProjectFileFromDevice, pasteNodeFromClipboard, redoLastCommand, renderDesignSystem, renderWindowMenu, saveProjectFileToDevice, undoLastCommand } = bindEditorApi(["canCopySelectedNode","canCreateInstanceFromSelectedLayer","canDeleteSelectedNode","canEditSelectedInstanceNode","canPasteNodeFromClipboard","clamp","closeAnchorPresetMenus","closeComponentAddMenus","copySelectedNodeToClipboard","createNewProjectFromDeviceFlow","getAssetById","getComponentById","getSelectedNode","handleDeleteSelectedNodeShortcut","handleDeleteSelectedPageShortcut","isComponentInstanceNode","isMissingComponentInstanceNode","isTextEditingTarget","isTextureDropAsset","openProjectFileFromDevice","pasteNodeFromClipboard","redoLastCommand","renderDesignSystem","renderWindowMenu","saveProjectFileToDevice","undoLastCommand"]);
+const {
+  canCopySelectedNode,
+  canCreateInstanceFromSelectedLayer,
+  canDeleteSelectedNode,
+  canEditSelectedInstanceNode,
+  canPasteNodeFromClipboard,
+  clamp,
+  closeAnchorPresetMenus,
+  closeComponentAddMenus,
+  copySelectedNodeToClipboard,
+  createNewProjectFromDeviceFlow,
+  getAssetById,
+  getComponentById,
+  getSelectedNode,
+  handleDeleteSelectedNodeShortcut,
+  handleDeleteSelectedPageShortcut,
+  isComponentInstanceNode,
+  isMissingComponentInstanceNode,
+  isTextEditingTarget,
+  isTextureDropAsset,
+  openProjectFileFromDevice,
+  pasteNodeFromClipboard,
+  redoLastCommand,
+  renderWindowMenu,
+  saveProjectFileToDevice,
+  undoLastCommand
+} = bindEditorApi([
+  "canCopySelectedNode",
+  "canCreateInstanceFromSelectedLayer",
+  "canDeleteSelectedNode",
+  "canEditSelectedInstanceNode",
+  "canPasteNodeFromClipboard",
+  "clamp",
+  "closeAnchorPresetMenus",
+  "closeComponentAddMenus",
+  "copySelectedNodeToClipboard",
+  "createNewProjectFromDeviceFlow",
+  "getAssetById",
+  "getComponentById",
+  "getSelectedNode",
+  "handleDeleteSelectedNodeShortcut",
+  "handleDeleteSelectedPageShortcut",
+  "isComponentInstanceNode",
+  "isMissingComponentInstanceNode",
+  "isTextEditingTarget",
+  "isTextureDropAsset",
+  "openProjectFileFromDevice",
+  "pasteNodeFromClipboard",
+  "redoLastCommand",
+  "renderWindowMenu",
+  "saveProjectFileToDevice",
+  "undoLastCommand"
+]);
 
 export function setLayoutMenuOpen(open) {
   els.layoutMenu.hidden = !open;
@@ -27,15 +79,6 @@ export function setHistoryMenuOpen(open) {
 export function setProjectMenuOpen(open) {
   els.projectMenu.hidden = !open;
   els.projectMenuButton.setAttribute("aria-expanded", String(open));
-}
-
-export function setDesignDialogOpen(open) {
-  els.designDialog.hidden = !open;
-  els.designDialogButton.setAttribute("aria-expanded", String(open));
-  if (open) {
-    renderDesignSystem();
-    requestAnimationFrame(() => els.designThemeSelect?.focus());
-  }
 }
 
 export function setDeviceMenuOpen(open) {
@@ -350,7 +393,6 @@ export function closeFloatingMenusOnEscape(event) {
     setAssetContextMenuOpen(false);
     setPageContextMenuOpen(false);
     setInstanceContextMenuOpen(false);
-    setDesignDialogOpen(false);
     closeAnchorPresetMenus();
     closeComponentAddMenus();
   }

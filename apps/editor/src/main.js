@@ -51,7 +51,6 @@ setEditorState({
   contextMenuParentId: null,
   pageContextPageId: null,
   selectedPageId: editorApi.getInitialPageId(initialProject),
-  previewTheme: "default",
   renamingPageId: null,
   assetContextMenuAssetId: null,
   instanceContextComponentId: null,

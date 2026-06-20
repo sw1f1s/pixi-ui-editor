@@ -100,7 +100,7 @@ export function buildEditorPreviewRenderTree(page, canvasSize) {
       height: canvasSize.height,
       safeArea: normalizeSafeArea(page.canvas.safeArea)
     },
-    theme: page.editorMeta?.theme || state.previewTheme || "default",
+    theme: page.editorMeta?.theme || "default",
     stateByNodeId: new Map()
   }, {
     path: page.id,
