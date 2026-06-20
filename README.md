@@ -22,14 +22,7 @@ The editor dev server serves the repository root and redirects `/` to `apps/edit
 
 ## GitHub Pages
 
-Publish the repository root from the `main` branch:
-
-1. Open `Settings` -> `Pages`.
-2. Under `Build and deployment`, set `Source` to `Deploy from a branch`.
-3. Set `Branch` to `main` and folder to `/ (root)`.
-4. Save the settings.
-
-After GitHub Pages deploys, the editor opens from:
+Open the editor:
 
 ```text
 https://sw1f1s.github.io/pixi-ui-editor/
